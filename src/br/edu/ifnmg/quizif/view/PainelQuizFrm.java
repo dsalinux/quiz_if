@@ -5,19 +5,94 @@
  */
 package br.edu.ifnmg.quizif.view;
 
+import br.edu.ifnmg.quizif.model.Questao;
+import java.awt.Color;
+
 /**
  *
  * @author danilo
  */
 public class PainelQuizFrm extends javax.swing.JFrame {
 
+    private Questao questaoSelecionada = null;
+    private Integer tempo = null;
     /**
      * Creates new form PainelQuizFrm
      */
     public PainelQuizFrm() {
         initComponents();
+        limpaTela();
+        pbTempo.setVisible(false);
     }
-
+    
+    public void definirTempoMaximo(int tempo){
+        this.tempo = tempo*1000;
+        pbTempo.setMaximum(this.tempo);
+        pbTempo.setValue(this.tempo);
+        pbTempo.setVisible(true);
+    }
+    
+    public void atualizarTempo(int tempo){
+        this.tempo = tempo;
+        pbTempo.setValue(this.tempo);
+        pbTempo.repaint();
+    }
+    
+    public void setQuestaoSelecionada(Questao questaoSelecionada) {
+        this.questaoSelecionada = questaoSelecionada;
+        atualizaTela();
+    }
+    public boolean isProjetandoQuestao(){
+        return questaoSelecionada != null;
+    }
+    public void resetRespostaSelecionada(){
+        lblResposta1.setBackground(new Color(83,168,254));
+        lblResposta2.setBackground(new Color(83,168,254));
+        lblResposta3.setBackground(new Color(83,168,254));
+        lblResposta4.setBackground(new Color(83,168,254));
+    }
+    public void selecionarResposta(Integer resposta){
+        resetRespostaSelecionada();
+        if(resposta == null){
+            return;
+        }
+        switch (resposta) {
+            case 1:
+                lblResposta1.setBackground(Color.GREEN);
+                break;
+            case 2:
+                lblResposta2.setBackground(Color.GREEN);
+                break;
+            case 3:
+                lblResposta3.setBackground(Color.GREEN);
+                break;
+            case 4:
+                lblResposta4.setBackground(Color.GREEN);
+                break;
+            default:
+                throw new AssertionError();
+        }
+    }
+    private void limpaTela(){
+        lblQuestao.setText("");
+        lblResposta1.setText("");
+        lblResposta2.setText("");
+        lblResposta3.setText("");
+        lblResposta4.setText("");
+    }
+    
+    private void atualizaTela(){
+        StringBuilder textoQuestao = new StringBuilder();
+        textoQuestao.append("<html><p \\\"line-height:1\\\" align=\\\"JUSTIFY\\\"><b>");
+        textoQuestao.append(questaoSelecionada.getTexto());
+        textoQuestao.append("</b></p></html>");
+        lblQuestao.setText(textoQuestao.toString());
+        lblResposta1.setText("<html><p \\\"line-height:1\\\" align=\\\"JUSTIFY\\\"><b>A) "+questaoSelecionada.getResposta1()+"</b></p></html>");
+        lblResposta2.setText("<html><p \\\"line-height:1\\\" align=\\\"JUSTIFY\\\"><b>B) "+questaoSelecionada.getResposta2()+"</b></p></html>");
+        lblResposta3.setText("<html><p \\\"line-height:1\\\" align=\\\"JUSTIFY\\\"><b>C) "+questaoSelecionada.getResposta3()+"</b></p></html>");
+        lblResposta4.setText("<html><p \\\"line-height:1\\\" align=\\\"JUSTIFY\\\"><b>D) "+questaoSelecionada.getResposta4()+"</b></p></html>");
+    }
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -29,12 +104,12 @@ public class PainelQuizFrm extends javax.swing.JFrame {
 
         jPanel2 = new javax.swing.JPanel();
         jPanel3 = new javax.swing.JPanel();
-        jLabel1 = new javax.swing.JLabel();
-        jLabel4 = new javax.swing.JLabel();
-        jLabel5 = new javax.swing.JLabel();
-        jLabel6 = new javax.swing.JLabel();
-        jLabel7 = new javax.swing.JLabel();
-        jProgressBar1 = new javax.swing.JProgressBar();
+        lblQuestao = new javax.swing.JLabel();
+        lblResposta2 = new javax.swing.JLabel();
+        lblResposta1 = new javax.swing.JLabel();
+        lblResposta3 = new javax.swing.JLabel();
+        lblResposta4 = new javax.swing.JLabel();
+        pbTempo = new javax.swing.JProgressBar();
         jPanel1 = new javax.swing.JPanel();
         jPanel4 = new javax.swing.JPanel();
         jPanel5 = new javax.swing.JPanel();
@@ -63,34 +138,44 @@ public class PainelQuizFrm extends javax.swing.JFrame {
             .addGap(0, 254, Short.MAX_VALUE)
         );
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DO_NOTHING_ON_CLOSE);
+        setTitle("Quiz IF");
 
-        jLabel1.setBackground(new java.awt.Color(42, 148, 254));
-        jLabel1.setFont(new java.awt.Font("Ubuntu", 0, 36)); // NOI18N
-        jLabel1.setText("<html><p \\\"line-height:1\\\" align=\\\"JUSTIFY\\\">Qual a cor do cavalo brando de napoleão?<b><font size=\\\"70px\\\">João</font></b></p></html>");
-        jLabel1.setVerticalAlignment(javax.swing.SwingConstants.TOP);
-        jLabel1.setBorder(javax.swing.BorderFactory.createEmptyBorder(10, 10, 10, 10));
-        jLabel1.setOpaque(true);
+        lblQuestao.setBackground(new java.awt.Color(42, 148, 254));
+        lblQuestao.setFont(new java.awt.Font("Ubuntu", 0, 36)); // NOI18N
+        lblQuestao.setText("<html><p \\\"line-height:1\\\" align=\\\"JUSTIFY\\\">Qual a cor do cavalo brando de napoleão?<b><font size=\\\"70px\\\">João</font></b></p></html>");
+        lblQuestao.setVerticalAlignment(javax.swing.SwingConstants.TOP);
+        lblQuestao.setBorder(javax.swing.BorderFactory.createEmptyBorder(10, 10, 10, 10));
+        lblQuestao.setOpaque(true);
 
-        jLabel4.setBackground(new java.awt.Color(83, 168, 254));
-        jLabel4.setText("jLabel2");
-        jLabel4.setOpaque(true);
+        lblResposta2.setBackground(new java.awt.Color(83, 168, 254));
+        lblResposta2.setFont(new java.awt.Font("Ubuntu", 0, 36)); // NOI18N
+        lblResposta2.setText("jLabel2");
+        lblResposta2.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 10, 1, 1));
+        lblResposta2.setOpaque(true);
 
-        jLabel5.setBackground(new java.awt.Color(83, 168, 254));
-        jLabel5.setText("jLabel2");
-        jLabel5.setOpaque(true);
+        lblResposta1.setBackground(new java.awt.Color(83, 168, 254));
+        lblResposta1.setFont(new java.awt.Font("Ubuntu", 0, 36)); // NOI18N
+        lblResposta1.setText("jLabel2");
+        lblResposta1.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 10, 1, 1));
+        lblResposta1.setOpaque(true);
 
-        jLabel6.setBackground(new java.awt.Color(83, 168, 254));
-        jLabel6.setText("jLabel2");
-        jLabel6.setOpaque(true);
+        lblResposta3.setBackground(new java.awt.Color(83, 168, 254));
+        lblResposta3.setFont(new java.awt.Font("Ubuntu", 0, 36)); // NOI18N
+        lblResposta3.setText("jLabel2");
+        lblResposta3.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 10, 1, 1));
+        lblResposta3.setOpaque(true);
 
-        jLabel7.setBackground(new java.awt.Color(83, 168, 254));
-        jLabel7.setText("jLabel2");
-        jLabel7.setOpaque(true);
+        lblResposta4.setBackground(new java.awt.Color(83, 168, 254));
+        lblResposta4.setFont(new java.awt.Font("Ubuntu", 0, 36)); // NOI18N
+        lblResposta4.setText("jLabel2");
+        lblResposta4.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 10, 1, 1));
+        lblResposta4.setOpaque(true);
 
-        jProgressBar1.setValue(50);
-        jProgressBar1.setString("0");
-        jProgressBar1.setStringPainted(true);
+        pbTempo.setFont(new java.awt.Font("Ubuntu", 1, 24)); // NOI18N
+        pbTempo.setValue(50);
+        pbTempo.setString("Tempo Restante (5s)");
+        pbTempo.setStringPainted(true);
 
         jPanel1.setBackground(new java.awt.Color(217, 255, 111));
 
@@ -138,14 +223,14 @@ public class PainelQuizFrm extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jProgressBar1, javax.swing.GroupLayout.DEFAULT_SIZE, 999, Short.MAX_VALUE)
+                    .addComponent(pbTempo, javax.swing.GroupLayout.DEFAULT_SIZE, 999, Short.MAX_VALUE)
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jLabel6, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jLabel4, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jLabel5, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jLabel1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
-                            .addComponent(jLabel7, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                            .addComponent(lblResposta3, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(lblResposta2, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(lblResposta1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(lblQuestao, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+                            .addComponent(lblResposta4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                         .addGap(18, 18, 18)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -158,7 +243,7 @@ public class PainelQuizFrm extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, 228, Short.MAX_VALUE)
+                    .addComponent(lblQuestao, javax.swing.GroupLayout.DEFAULT_SIZE, 228, Short.MAX_VALUE)
                     .addComponent(jPanel5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -167,70 +252,36 @@ public class PainelQuizFrm extends javax.swing.JFrame {
                         .addGap(18, 18, 18)
                         .addComponent(jPanel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 76, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(lblResposta1, javax.swing.GroupLayout.PREFERRED_SIZE, 76, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(lblResposta2, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 76, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(lblResposta3, javax.swing.GroupLayout.PREFERRED_SIZE, 76, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(lblResposta4, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(0, 40, Short.MAX_VALUE)))
                 .addGap(22, 22, 22)
-                .addComponent(jProgressBar1, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(pbTempo, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
 
-        layout.linkSize(javax.swing.SwingConstants.VERTICAL, new java.awt.Component[] {jLabel4, jLabel5, jLabel6, jLabel7});
+        layout.linkSize(javax.swing.SwingConstants.VERTICAL, new java.awt.Component[] {lblResposta1, lblResposta2, lblResposta3, lblResposta4});
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(PainelQuizFrm.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(PainelQuizFrm.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(PainelQuizFrm.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(PainelQuizFrm.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
-
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new PainelQuizFrm().setVisible(true);
-            }
-        });
-    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel6;
-    private javax.swing.JLabel jLabel7;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
     private javax.swing.JPanel jPanel5;
-    private javax.swing.JProgressBar jProgressBar1;
+    private javax.swing.JLabel lblQuestao;
+    private javax.swing.JLabel lblResposta1;
+    private javax.swing.JLabel lblResposta2;
+    private javax.swing.JLabel lblResposta3;
+    private javax.swing.JLabel lblResposta4;
+    private javax.swing.JProgressBar pbTempo;
     // End of variables declaration//GEN-END:variables
 }
