@@ -9,12 +9,13 @@ import java.util.List;
 public class Competicao {
 
     private String titulo;
-    private int rodada;
+    private int rodada = 1;
     private List<Competidor> competidores;
     private boolean opcaoPular = true;
     private boolean opcaoUnivesitarios = true;
     private boolean opcaoPlateia = true;
     private int tempo = 5;
+    private List<Desafiante> desafiantes;
 
     public String getTitulo() {
         return titulo;
@@ -71,7 +72,13 @@ public class Competicao {
     public void setTempo(int tempo) {
         this.tempo = tempo;
     }
-    
-    
+
+    public List<Desafiante> getDesafiantes() {
+        return desafiantes;
+    }
+
+    public void setDesafiantes(List<Desafiante> desafiantes) {
+        this.desafiantes = desafiantes;
+    }
     
 }

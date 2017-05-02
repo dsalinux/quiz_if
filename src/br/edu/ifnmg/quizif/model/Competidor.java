@@ -8,9 +8,21 @@ import java.util.Objects;
  */
 public class Competidor {
 
+    private Integer id;
     private String nome;
     private String equipe;
+    private boolean pulou;
+    private boolean ajudadoUniversitarios;
+    private boolean ajudadoPlateia;
 
+    public Integer getId() {
+        return id;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
+    }
+    
     public String getNome() {
         return nome;
     }
@@ -27,11 +39,36 @@ public class Competidor {
         this.equipe = equipe;
     }
 
+    public boolean isPulou() {
+        return pulou;
+    }
+
+    public void setPulou(Boolean pulou) {
+        this.pulou = pulou;
+    }
+
+    public boolean isAjudadoUniversitarios() {
+        return ajudadoUniversitarios;
+    }
+
+    public void setAjudadoUniversitarios(Boolean ajudadoUniversitarios) {
+        this.ajudadoUniversitarios = ajudadoUniversitarios;
+    }
+
+    public boolean isAjudadoPlateia() {
+        return ajudadoPlateia;
+    }
+
+    public void setAjudadoPlateia(Boolean ajudadoPlateia) {
+        this.ajudadoPlateia = ajudadoPlateia;
+    }
+    
+    
+
     @Override
     public int hashCode() {
-        int hash = 5;
-        hash = 41 * hash + Objects.hashCode(this.nome);
-        hash = 41 * hash + Objects.hashCode(this.equipe);
+        int hash = 3;
+        hash = 43 * hash + Objects.hashCode(this.id);
         return hash;
     }
 
@@ -47,15 +84,15 @@ public class Competidor {
             return false;
         }
         final Competidor other = (Competidor) obj;
-        if (!Objects.equals(this.nome, other.nome)) {
-            return false;
-        }
-        if (!Objects.equals(this.equipe, other.equipe)) {
+        if (!Objects.equals(this.id, other.id)) {
             return false;
         }
         return true;
     }
-    
-    
-    
+
+    @Override
+    public String toString() {
+        return nome;
+    }
+
 }
