@@ -54,6 +54,7 @@ public class GerenciarQuizFrm extends javax.swing.JFrame {
     private Integer respostaSelecionada = null;
     private Competidor competidor1;
     private Competidor competidor2;
+    private FrameBloquear bloquear = null;
 
     /**
      * Creates new form ConfiguracaoQuizFrm
@@ -65,6 +66,7 @@ public class GerenciarQuizFrm extends javax.swing.JFrame {
         setExtendedState(MAXIMIZED_BOTH);
         verificarAbaPainelQuiz();
         btnEnviarPergunta.setEnabled(false);
+        btnBloquearTela.setEnabled(false);
         verificarPainelCompetidor1();
         verificarPainelCompetidor2();
 
@@ -176,7 +178,9 @@ public class GerenciarQuizFrm extends javax.swing.JFrame {
 //        painelQuizFrm.setAlwaysOnTop(true);
         if (rbJanela.isSelected()) {
             painelQuizFrm.setVisible(true);
+            btnBloquearTela.setEnabled(false);
         } else if (rbTelaCheia.isSelected()) {
+            btnBloquearTela.setEnabled(true);
             painelQuizFrm.setAlwaysOnTop(true);
             deviceSelected.setFullScreenWindow(painelQuizFrm);
         } else {
@@ -219,7 +223,7 @@ public class GerenciarQuizFrm extends javax.swing.JFrame {
     }
 
     public void confirmarFecharJanela() {
-        int result = 0;//JOptionPane.showConfirmDialog(rootPane, "Tem certeza que deseja fechar?", "Confirme", JOptionPane.YES_NO_OPTION);
+        int result = JOptionPane.showConfirmDialog(rootPane, "Tem certeza que deseja fechar?", "Confirme", JOptionPane.YES_NO_OPTION);
         if (result == 0) {
             System.exit(0);
         }
@@ -259,6 +263,7 @@ public class GerenciarQuizFrm extends javax.swing.JFrame {
         lblResposta2.setBackground(Color.ORANGE);
         lblResposta3.setBackground(Color.ORANGE);
         lblResposta4.setBackground(Color.ORANGE);
+        painelQuizFrm.resetRespostaSelecionada();
     }
 
     private void atualizaSelecaoResposta() {
@@ -294,6 +299,7 @@ public class GerenciarQuizFrm extends javax.swing.JFrame {
         questaoSorteada = questoes.get(sortada);
         questaoSorteada.setJaFoi(true);
         atualizarQuestaoGerenciadorQuiz();
+        btnEnviarPergunta.setEnabled(true);
     }
 
     /**
@@ -355,6 +361,7 @@ public class GerenciarQuizFrm extends javax.swing.JFrame {
         btnEnviarPergunta = new javax.swing.JButton();
         btnIniciarTempo = new javax.swing.JButton();
         btnPausarTempo = new javax.swing.JButton();
+        btnBloquearTela = new javax.swing.JButton();
         jPanel11 = new javax.swing.JPanel();
         lblQuestao = new javax.swing.JLabel();
         lblResposta1 = new javax.swing.JLabel();
@@ -630,7 +637,7 @@ public class GerenciarQuizFrm extends javax.swing.JFrame {
         pnGerenciarQuiz.setBackground(new java.awt.Color(255, 255, 255));
 
         jPanel5.setBackground(new java.awt.Color(255, 255, 255));
-        jPanel5.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Painel Quiz", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Dialog", 1, 12))); // NOI18N
+        jPanel5.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Painel Quiz", 0, 0, new java.awt.Font("Dialog", 1, 12))); // NOI18N
 
         btnIniciarPainelQuiz.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/edu/ifnmg/quizif/resources/image/window-new.png"))); // NOI18N
         btnIniciarPainelQuiz.setText("Iniciar");
@@ -666,13 +673,13 @@ public class GerenciarQuizFrm extends javax.swing.JFrame {
                 .addComponent(btnIniciarPainelQuiz)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(bntFecharPainel)
-                .addContainerGap(16, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         jPanel9.setBackground(new java.awt.Color(255, 255, 255));
-        jPanel9.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Competidores", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Dialog", 1, 12))); // NOI18N
+        jPanel9.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Competidores", 0, 0, new java.awt.Font("Dialog", 1, 12))); // NOI18N
 
-        jPanel12.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Competidor 1", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Dialog", 1, 12))); // NOI18N
+        jPanel12.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Competidor 1", 0, 0, new java.awt.Font("Dialog", 1, 12))); // NOI18N
         jPanel12.setOpaque(false);
         jPanel12.setPreferredSize(new java.awt.Dimension(450, 149));
 
@@ -738,7 +745,7 @@ public class GerenciarQuizFrm extends javax.swing.JFrame {
                 .addContainerGap())
         );
 
-        jPanel13.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Competidor 2", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Dialog", 1, 12))); // NOI18N
+        jPanel13.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Competidor 2", 0, 0, new java.awt.Font("Dialog", 1, 12))); // NOI18N
         jPanel13.setOpaque(false);
         jPanel13.setPreferredSize(new java.awt.Dimension(450, 149));
 
@@ -794,7 +801,7 @@ public class GerenciarQuizFrm extends javax.swing.JFrame {
             .addGroup(jPanel13Layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(cbxCompetidores2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 17, Short.MAX_VALUE)
                 .addComponent(btnConferirCompetidor2)
                 .addGap(18, 18, 18)
                 .addGroup(jPanel13Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -826,7 +833,7 @@ public class GerenciarQuizFrm extends javax.swing.JFrame {
         );
 
         jPanel10.setBackground(new java.awt.Color(255, 255, 255));
-        jPanel10.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Sortear", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Dialog", 1, 12))); // NOI18N
+        jPanel10.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Sortear", 0, 0, new java.awt.Font("Dialog", 1, 12))); // NOI18N
 
         btnSortearCompetidores.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/edu/ifnmg/quizif/resources/image/system-users.png"))); // NOI18N
         btnSortearCompetidores.setText("Sortear Compeditores");
@@ -868,6 +875,14 @@ public class GerenciarQuizFrm extends javax.swing.JFrame {
             }
         });
 
+        btnBloquearTela.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/edu/ifnmg/quizif/resources/image/window-close.png"))); // NOI18N
+        btnBloquearTela.setText("Bloquear Tela");
+        btnBloquearTela.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnBloquearTelaActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel10Layout = new javax.swing.GroupLayout(jPanel10);
         jPanel10.setLayout(jPanel10Layout);
         jPanel10Layout.setHorizontalGroup(
@@ -882,8 +897,10 @@ public class GerenciarQuizFrm extends javax.swing.JFrame {
                     .addComponent(btnSortearQuestao, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(btnPausarTempo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(btnEnviarPergunta)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGroup(jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(btnEnviarPergunta, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(btnBloquearTela, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(72, Short.MAX_VALUE))
         );
         jPanel10Layout.setVerticalGroup(
             jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -894,14 +911,16 @@ public class GerenciarQuizFrm extends javax.swing.JFrame {
                     .addComponent(btnSortearQuestao)
                     .addComponent(btnEnviarPergunta))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnIniciarTempo)
-                    .addComponent(btnPausarTempo))
+                .addGroup(jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(btnIniciarTempo)
+                        .addComponent(btnPausarTempo))
+                    .addComponent(btnBloquearTela))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         jPanel11.setBackground(new java.awt.Color(255, 255, 255));
-        jPanel11.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Questão Sorteada", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Dialog", 1, 12))); // NOI18N
+        jPanel11.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Questão Sorteada", 0, 0, new java.awt.Font("Dialog", 1, 12))); // NOI18N
 
         lblQuestao.setBackground(new java.awt.Color(156, 225, 255));
         lblQuestao.setBorder(javax.swing.BorderFactory.createEmptyBorder(4, 4, 4, 4));
@@ -1029,7 +1048,7 @@ public class GerenciarQuizFrm extends javax.swing.JFrame {
                 .addContainerGap()
                 .addGroup(pnGerenciarQuizLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(jPanel5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jPanel10, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
+                    .addComponent(jPanel10, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(pnGerenciarQuizLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jPanel11, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -1083,7 +1102,9 @@ public class GerenciarQuizFrm extends javax.swing.JFrame {
 
     private void btnIniciarPainelQuizActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnIniciarPainelQuizActionPerformed
         iniciarPainelQuiz();
-        btnEnviarPergunta.setEnabled(true);
+        if(questaoSorteada != null){
+            btnEnviarPergunta.setEnabled(true);
+        }
     }//GEN-LAST:event_btnIniciarPainelQuizActionPerformed
 
     private void bntFecharPainelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bntFecharPainelActionPerformed
@@ -1099,7 +1120,7 @@ public class GerenciarQuizFrm extends javax.swing.JFrame {
         }
         listQuestoes.setModel(listModel);
         listQuestoes.setValueIsAdjusting(true);
-        btnSelecionarQuestoes.setText(btnSelecionarQuestoes.getText() + " (" + questoes.size() + " questões carregadas)");
+        btnSelecionarQuestoes.setText( "Buscar Questões (" + questoes.size() + " questões carregadas)");
         verificarAbaPainelQuiz();
     }//GEN-LAST:event_btnSelecionarQuestoesActionPerformed
 
@@ -1131,6 +1152,7 @@ public class GerenciarQuizFrm extends javax.swing.JFrame {
 
     private void btnSortearQuestaoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSortearQuestaoActionPerformed
         sortearQuestao();
+        resetRespostaSelecionada();
     }//GEN-LAST:event_btnSortearQuestaoActionPerformed
 
     private void btnEnviarPerguntaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEnviarPerguntaActionPerformed
@@ -1193,7 +1215,7 @@ public class GerenciarQuizFrm extends javax.swing.JFrame {
         }
         listaParticipantes.setModel(listModel);
         listaParticipantes.setValueIsAdjusting(true);
-        btnAdicionarParticipantes.setText(btnAdicionarParticipantes.getText() + " (" + competidores.size() + " competidores)");
+        btnAdicionarParticipantes.setText("Buscar Participantes (" + competidores.size() + " competidores)");
         verificarAbaPainelQuiz();
         inicarComboboxCompetidores();
     }//GEN-LAST:event_btnAdicionarParticipantesActionPerformed
@@ -1241,6 +1263,7 @@ public class GerenciarQuizFrm extends javax.swing.JFrame {
     private void btnConferirCompetidor2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnConferirCompetidor2ActionPerformed
         if (respostaSelecionada != null) {
             painelQuizFrm.mostrarResposta(respostaSelecionada.equals(questaoSorteada.getRespostaCorreta()), questaoSorteada.getRespostaCorreta());
+            resetRespostaSelecionada();
         }
     }//GEN-LAST:event_btnConferirCompetidor2ActionPerformed
 
@@ -1279,6 +1302,18 @@ public class GerenciarQuizFrm extends javax.swing.JFrame {
         competidor2.setAjudadoUniversitarios(ab.isSelected());
         painelQuizFrm.atualzarCompetidores(competidor1, competidor2);
     }//GEN-LAST:event_chbUniversitariosCompetidor2ActionPerformed
+
+    private void btnBloquearTelaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBloquearTelaActionPerformed
+        
+        if(bloquear == null){
+            bloquear = new FrameBloquear();
+            bloquear.setAlwaysOnTop(true);
+            deviceSelected.setFullScreenWindow(bloquear);
+        } else {
+            deviceSelected.setFullScreenWindow(painelQuizFrm);
+            bloquear = null;
+        }
+    }//GEN-LAST:event_btnBloquearTelaActionPerformed
 
     /**
      * @param args the command line arguments
@@ -1320,6 +1355,7 @@ public class GerenciarQuizFrm extends javax.swing.JFrame {
     private javax.swing.JTree arvoreCompetidores;
     private javax.swing.JButton bntFecharPainel;
     private javax.swing.JButton btnAdicionarParticipantes;
+    private javax.swing.JButton btnBloquearTela;
     private javax.swing.JButton btnConferirCompetidor1;
     private javax.swing.JButton btnConferirCompetidor2;
     private javax.swing.JButton btnEnviarPergunta;

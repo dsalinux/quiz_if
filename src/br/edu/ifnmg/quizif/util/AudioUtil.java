@@ -6,8 +6,10 @@
 package br.edu.ifnmg.quizif.util;
 
 import br.edu.ifnmg.quizif.Main;
+import java.io.BufferedInputStream;
 import java.io.File;
 import java.io.IOException;
+import java.io.InputStream;
 import java.net.URISyntaxException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -35,14 +37,13 @@ public class AudioUtil {
     
     public static void reproduzir(String musica){
         try {
-            File soundFile = new File(AudioUtil.class.getResource(DEFAULT_PACKAGE+musica).toURI());
-            AudioInputStream sound = AudioSystem.getAudioInputStream(soundFile);
+            InputStream inputStream = AudioUtil.class.getResourceAsStream(DEFAULT_PACKAGE+musica);
+            InputStream bufferedIn = new BufferedInputStream(inputStream);
+            AudioInputStream sound = AudioSystem.getAudioInputStream(bufferedIn);
             DataLine.Info info = new DataLine.Info(Clip.class, sound.getFormat());
             Clip clip = (Clip) AudioSystem.getLine(info);
             clip.open(sound);
             clip.start();
-        } catch (URISyntaxException ex) {
-            Logger.getLogger(AudioUtil.class.getName()).log(Level.SEVERE, null, ex);
         } catch (LineUnavailableException ex) {
             Logger.getLogger(AudioUtil.class.getName()).log(Level.SEVERE, null, ex);
         } catch (IOException ex) {

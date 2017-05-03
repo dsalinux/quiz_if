@@ -242,54 +242,29 @@ public class PainelQuizFrm extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jPanel2 = new javax.swing.JPanel();
-        jPanel3 = new javax.swing.JPanel();
         jPanel6 = new javax.swing.JPanel();
+        pbTempo = new javax.swing.JProgressBar();
+        jPanel5 = new javax.swing.JPanel();
+        jLabel1 = new javax.swing.JLabel();
         jPanel1 = new javax.swing.JPanel();
         lblParticipante1 = new javax.swing.JLabel();
         lblPularCompetidor1 = new javax.swing.JLabel();
         lblPlateiaCompetidor1 = new javax.swing.JLabel();
         lblUniversitariosCompetidor1 = new javax.swing.JLabel();
         lblEquipe1 = new javax.swing.JLabel();
-        pbTempo = new javax.swing.JProgressBar();
-        jPanel5 = new javax.swing.JPanel();
-        jLabel1 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
-        lblResposta4 = new javax.swing.JLabel();
-        lblQuestao = new javax.swing.JLabel();
-        lblResposta1 = new javax.swing.JLabel();
-        lblResposta3 = new javax.swing.JLabel();
-        lblResposta2 = new javax.swing.JLabel();
         jPanel7 = new javax.swing.JPanel();
         lblParticipante2 = new javax.swing.JLabel();
         lblPularCompetidor2 = new javax.swing.JLabel();
         lblPlateiaCompetidor2 = new javax.swing.JLabel();
         lblUniversitariosCompetidor2 = new javax.swing.JLabel();
         lblEquipe2 = new javax.swing.JLabel();
-
-        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
-        jPanel2.setLayout(jPanel2Layout);
-        jPanel2Layout.setHorizontalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 299, Short.MAX_VALUE)
-        );
-        jPanel2Layout.setVerticalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 0, Short.MAX_VALUE)
-        );
-
-        jPanel3.setBackground(new java.awt.Color(217, 255, 111));
-
-        javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
-        jPanel3.setLayout(jPanel3Layout);
-        jPanel3Layout.setHorizontalGroup(
-            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 299, Short.MAX_VALUE)
-        );
-        jPanel3Layout.setVerticalGroup(
-            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 254, Short.MAX_VALUE)
-        );
+        lblResposta4 = new javax.swing.JLabel();
+        lblQuestao = new javax.swing.JLabel();
+        lblResposta1 = new javax.swing.JLabel();
+        lblResposta3 = new javax.swing.JLabel();
+        lblResposta2 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
+        jPanel4 = new javax.swing.JPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DO_NOTHING_ON_CLOSE);
         setTitle("Quiz IF");
@@ -298,33 +273,43 @@ public class PainelQuizFrm extends javax.swing.JFrame {
         jPanel6.setBackground(new java.awt.Color(255, 255, 255));
         jPanel6.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
 
+        pbTempo.setFont(new java.awt.Font("Ubuntu", 1, 24)); // NOI18N
+        pbTempo.setValue(50);
+        pbTempo.setString("Tempo Restante (5s)");
+        pbTempo.setStringPainted(true);
+
+        jPanel5.setBackground(java.awt.Color.lightGray);
+
+        jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/edu/ifnmg/quizif/resources/image/dia-matematica.jpg"))); // NOI18N
+
         jPanel1.setBackground(java.awt.Color.lightGray);
 
         lblParticipante1.setFont(new java.awt.Font("Ubuntu", 0, 28)); // NOI18N
         lblParticipante1.setText("Participante 1");
 
-        lblPularCompetidor1.setFont(new java.awt.Font("Ubuntu", 1, 20)); // NOI18N
+        lblPularCompetidor1.setFont(new java.awt.Font("Ubuntu", 1, 16)); // NOI18N
         lblPularCompetidor1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblPularCompetidor1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/edu/ifnmg/quizif/resources/image/pular-on.png"))); // NOI18N
         lblPularCompetidor1.setText("Pular");
         lblPularCompetidor1.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         lblPularCompetidor1.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
 
-        lblPlateiaCompetidor1.setFont(new java.awt.Font("Ubuntu", 1, 20)); // NOI18N
+        lblPlateiaCompetidor1.setFont(new java.awt.Font("Ubuntu", 1, 16)); // NOI18N
         lblPlateiaCompetidor1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblPlateiaCompetidor1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/edu/ifnmg/quizif/resources/image/plateia-on.png"))); // NOI18N
         lblPlateiaCompetidor1.setText("Platéia");
         lblPlateiaCompetidor1.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         lblPlateiaCompetidor1.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
 
-        lblUniversitariosCompetidor1.setFont(new java.awt.Font("Ubuntu", 1, 20)); // NOI18N
+        lblUniversitariosCompetidor1.setFont(new java.awt.Font("Ubuntu", 1, 16)); // NOI18N
         lblUniversitariosCompetidor1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblUniversitariosCompetidor1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/edu/ifnmg/quizif/resources/image/universitarios-on.png"))); // NOI18N
         lblUniversitariosCompetidor1.setText("Universitários");
         lblUniversitariosCompetidor1.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         lblUniversitariosCompetidor1.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
 
-        lblEquipe1.setFont(new java.awt.Font("Ubuntu", 0, 28)); // NOI18N
+        lblEquipe1.setFont(new java.awt.Font("Ubuntu", 0, 18)); // NOI18N
         lblEquipe1.setText("Equipe");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
@@ -363,19 +348,66 @@ public class PainelQuizFrm extends javax.swing.JFrame {
                 .addContainerGap())
         );
 
-        pbTempo.setFont(new java.awt.Font("Ubuntu", 1, 24)); // NOI18N
-        pbTempo.setValue(50);
-        pbTempo.setOpaque(false);
-        pbTempo.setString("Tempo Restante (5s)");
-        pbTempo.setStringPainted(true);
+        jPanel7.setBackground(java.awt.Color.lightGray);
 
-        jPanel5.setBackground(java.awt.Color.lightGray);
+        lblParticipante2.setFont(new java.awt.Font("Ubuntu", 0, 28)); // NOI18N
+        lblParticipante2.setText("Participante 1");
 
-        jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/edu/ifnmg/quizif/resources/image/dia-matematica.jpg"))); // NOI18N
+        lblPularCompetidor2.setFont(new java.awt.Font("Ubuntu", 1, 16)); // NOI18N
+        lblPularCompetidor2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblPularCompetidor2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/edu/ifnmg/quizif/resources/image/pular-on.png"))); // NOI18N
+        lblPularCompetidor2.setText("Pular");
+        lblPularCompetidor2.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        lblPularCompetidor2.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
 
-        jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/edu/ifnmg/quizif/resources/image/logo_ifnmg.png"))); // NOI18N
+        lblPlateiaCompetidor2.setFont(new java.awt.Font("Ubuntu", 1, 16)); // NOI18N
+        lblPlateiaCompetidor2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblPlateiaCompetidor2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/edu/ifnmg/quizif/resources/image/plateia-on.png"))); // NOI18N
+        lblPlateiaCompetidor2.setText("Platéia");
+        lblPlateiaCompetidor2.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        lblPlateiaCompetidor2.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+
+        lblUniversitariosCompetidor2.setFont(new java.awt.Font("Ubuntu", 1, 16)); // NOI18N
+        lblUniversitariosCompetidor2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblUniversitariosCompetidor2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/edu/ifnmg/quizif/resources/image/universitarios-on.png"))); // NOI18N
+        lblUniversitariosCompetidor2.setText("Universitários");
+        lblUniversitariosCompetidor2.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        lblUniversitariosCompetidor2.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+
+        lblEquipe2.setFont(new java.awt.Font("Ubuntu", 0, 18)); // NOI18N
+        lblEquipe2.setText("Equipe");
+
+        javax.swing.GroupLayout jPanel7Layout = new javax.swing.GroupLayout(jPanel7);
+        jPanel7.setLayout(jPanel7Layout);
+        jPanel7Layout.setHorizontalGroup(
+            jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(lblParticipante2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(jPanel7Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel7Layout.createSequentialGroup()
+                        .addComponent(lblPularCompetidor2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(lblPlateiaCompetidor2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(lblUniversitariosCompetidor2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(lblEquipe2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap())
+        );
+        jPanel7Layout.setVerticalGroup(
+            jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel7Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(lblParticipante2)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(lblEquipe2)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(lblPularCompetidor2)
+                    .addComponent(lblPlateiaCompetidor2)
+                    .addComponent(lblUniversitariosCompetidor2))
+                .addContainerGap())
+        );
 
         javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
         jPanel5.setLayout(jPanel5Layout);
@@ -383,19 +415,21 @@ public class PainelQuizFrm extends javax.swing.JFrame {
             jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel5Layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addContainerGap())
+            .addComponent(jPanel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jPanel7, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         jPanel5Layout.setVerticalGroup(
             jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel5Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jLabel2)
+                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 211, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 209, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addComponent(jPanel7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
         );
 
         lblResposta4.setBackground(new java.awt.Color(254, 254, 254));
@@ -429,70 +463,10 @@ public class PainelQuizFrm extends javax.swing.JFrame {
         lblResposta2.setBorder(javax.swing.BorderFactory.createCompoundBorder(new javax.swing.border.LineBorder(java.awt.Color.lightGray, 1, true), javax.swing.BorderFactory.createEmptyBorder(1, 10, 1, 1)));
         lblResposta2.setOpaque(true);
 
-        jPanel7.setBackground(java.awt.Color.lightGray);
+        jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/edu/ifnmg/quizif/resources/image/logo_ifnmg.png"))); // NOI18N
 
-        lblParticipante2.setFont(new java.awt.Font("Ubuntu", 0, 28)); // NOI18N
-        lblParticipante2.setText("Participante 1");
-
-        lblPularCompetidor2.setFont(new java.awt.Font("Ubuntu", 1, 20)); // NOI18N
-        lblPularCompetidor2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lblPularCompetidor2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/edu/ifnmg/quizif/resources/image/pular-on.png"))); // NOI18N
-        lblPularCompetidor2.setText("Pular");
-        lblPularCompetidor2.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        lblPularCompetidor2.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
-
-        lblPlateiaCompetidor2.setFont(new java.awt.Font("Ubuntu", 1, 20)); // NOI18N
-        lblPlateiaCompetidor2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lblPlateiaCompetidor2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/edu/ifnmg/quizif/resources/image/plateia-on.png"))); // NOI18N
-        lblPlateiaCompetidor2.setText("Platéia");
-        lblPlateiaCompetidor2.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        lblPlateiaCompetidor2.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
-
-        lblUniversitariosCompetidor2.setFont(new java.awt.Font("Ubuntu", 1, 20)); // NOI18N
-        lblUniversitariosCompetidor2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lblUniversitariosCompetidor2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/edu/ifnmg/quizif/resources/image/universitarios-on.png"))); // NOI18N
-        lblUniversitariosCompetidor2.setText("Universitários");
-        lblUniversitariosCompetidor2.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        lblUniversitariosCompetidor2.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
-
-        lblEquipe2.setFont(new java.awt.Font("Ubuntu", 0, 28)); // NOI18N
-        lblEquipe2.setText("Equipe");
-
-        javax.swing.GroupLayout jPanel7Layout = new javax.swing.GroupLayout(jPanel7);
-        jPanel7.setLayout(jPanel7Layout);
-        jPanel7Layout.setHorizontalGroup(
-            jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel7Layout.createSequentialGroup()
-                .addGap(12, 12, 12)
-                .addComponent(lblParticipante2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGap(12, 12, 12))
-            .addGroup(jPanel7Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(lblPularCompetidor2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(lblPlateiaCompetidor2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(lblUniversitariosCompetidor2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addContainerGap())
-            .addGroup(jPanel7Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(lblEquipe2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addContainerGap())
-        );
-        jPanel7Layout.setVerticalGroup(
-            jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel7Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(lblParticipante2)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(lblEquipe2)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(lblPularCompetidor2)
-                    .addComponent(lblPlateiaCompetidor2)
-                    .addComponent(lblUniversitariosCompetidor2))
-                .addContainerGap())
-        );
+        jPanel4.setLayout(null);
 
         javax.swing.GroupLayout jPanel6Layout = new javax.swing.GroupLayout(jPanel6);
         jPanel6.setLayout(jPanel6Layout);
@@ -500,45 +474,50 @@ public class PainelQuizFrm extends javax.swing.JFrame {
             jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel6Layout.createSequentialGroup()
                 .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel6Layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(lblQuestao, javax.swing.GroupLayout.DEFAULT_SIZE, 701, Short.MAX_VALUE)
+                            .addGroup(jPanel6Layout.createSequentialGroup()
+                                .addComponent(jLabel3)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
                     .addComponent(lblResposta3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(lblResposta2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(lblResposta1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(lblQuestao, javax.swing.GroupLayout.DEFAULT_SIZE, 570, Short.MAX_VALUE)
-                    .addComponent(lblResposta4, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(lblResposta4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jPanel5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jPanel7, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                .addComponent(jPanel5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
             .addGroup(jPanel6Layout.createSequentialGroup()
+                .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
+            .addGroup(jPanel6Layout.createSequentialGroup()
+                .addContainerGap()
                 .addComponent(pbTempo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addContainerGap())
         );
         jPanel6Layout.setVerticalGroup(
             jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel6Layout.createSequentialGroup()
-                .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jPanel5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addGroup(jPanel6Layout.createSequentialGroup()
-                        .addGap(0, 0, Short.MAX_VALUE)
-                        .addComponent(lblQuestao, javax.swing.GroupLayout.PREFERRED_SIZE, 251, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel6Layout.createSequentialGroup()
                 .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel6Layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(jLabel3)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(lblQuestao, javax.swing.GroupLayout.PREFERRED_SIZE, 171, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(lblResposta1, javax.swing.GroupLayout.PREFERRED_SIZE, 76, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(lblResposta2, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(lblResposta3, javax.swing.GroupLayout.PREFERRED_SIZE, 76, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(lblResposta4, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel6Layout.createSequentialGroup()
-                        .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(lblResposta4, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jPanel7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jPanel5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, Short.MAX_VALUE)
                 .addComponent(pbTempo, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap())
         );
 
         jPanel6Layout.linkSize(javax.swing.SwingConstants.VERTICAL, new java.awt.Component[] {lblResposta1, lblResposta2, lblResposta3, lblResposta4});
@@ -560,10 +539,9 @@ public class PainelQuizFrm extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JPanel jPanel2;
-    private javax.swing.JPanel jPanel3;
+    private javax.swing.JPanel jPanel4;
     private javax.swing.JPanel jPanel5;
     private javax.swing.JPanel jPanel6;
     private javax.swing.JPanel jPanel7;
