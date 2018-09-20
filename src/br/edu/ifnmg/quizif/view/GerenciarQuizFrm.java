@@ -1263,7 +1263,6 @@ public class GerenciarQuizFrm extends javax.swing.JFrame {
     private void btnConferirCompetidor2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnConferirCompetidor2ActionPerformed
         if (respostaSelecionada != null) {
             painelQuizFrm.mostrarResposta(respostaSelecionada.equals(questaoSorteada.getRespostaCorreta()), questaoSorteada.getRespostaCorreta());
-            resetRespostaSelecionada();
         }
     }//GEN-LAST:event_btnConferirCompetidor2ActionPerformed
 
@@ -1309,7 +1308,9 @@ public class GerenciarQuizFrm extends javax.swing.JFrame {
             bloquear = new FrameBloquear();
             bloquear.setAlwaysOnTop(true);
             deviceSelected.setFullScreenWindow(bloquear);
+            painelQuizFrm.setVisible(false);
         } else {
+            bloquear.dispose();
             deviceSelected.setFullScreenWindow(painelQuizFrm);
             bloquear = null;
         }
